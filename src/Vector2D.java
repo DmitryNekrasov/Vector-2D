@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Vector2D {
 
     private final int x;
@@ -59,6 +61,20 @@ public class Vector2D {
 
     private static int sqr(int val) {
         return val * val;
+    }
+
+    public static Map<Vector2D, Integer> findDuplicates(Collection<Vector2D> vectors) {
+        Set<Vector2D> set = new HashSet<>();
+        Map<Vector2D, Integer> duplicates = new HashMap<>();
+        for (Vector2D vector : vectors) {
+            if (set.contains(vector)) {
+                int lastCount = duplicates.getOrDefault(vector, 1);
+                duplicates.put(vector, lastCount + 1);
+            } else {
+                set.add(vector);
+            }
+        }
+        return duplicates;
     }
 
     @Override
