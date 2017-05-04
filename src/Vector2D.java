@@ -20,6 +20,10 @@ public class Vector2D {
         return new Vector2D(newX, nexY);
     }
 
+    public int dotProduct(Vector2D vec) {
+        return x * vec.x + y * vec.y;
+    }
+
     @Override
     public String toString() {
         return "(" + x + ", " + y + ")";
