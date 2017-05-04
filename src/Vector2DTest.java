@@ -29,4 +29,22 @@ class Vector2DTest {
         Vector2D actual = vec1.multiply(value);
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void testDotProduct() {
+        Vector2D vec1 = new Vector2D(4, 8);
+        Vector2D vec2 = new Vector2D(3, 11);
+        int expected = 100;
+        int actual = vec1.dotProduct(vec2);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testCrossProduct() {
+        Vector2D vec1 = new Vector2D(-5, 4);
+        Vector2D vec2 = new Vector2D(8, 15);
+        int expected = -107;
+        int actual = vec1.crossProduct(vec2);
+        assertEquals(expected, actual);
+    }
 }
