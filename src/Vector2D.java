@@ -62,6 +62,22 @@ public class Vector2D {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        } else if (!(o instanceof Vector2D)) {
+            return false;
+        }
+        Vector2D vec = (Vector2D) o;
+        return x == vec.x && y == vec.y;
+    }
+
+    @Override
+    public int hashCode() {
+        return Integer.hashCode(x) ^ Integer.hashCode(y);
+    }
+
+    @Override
     public String toString() {
         return "(" + x + ", " + y + ")";
     }
