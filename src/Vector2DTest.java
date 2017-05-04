@@ -3,6 +3,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class Vector2DTest {
 
+    private static final double DELTA = 1e-11;
+
     @Test
     public void testAdd() {
         Vector2D vec1 = new Vector2D(5, 3);
@@ -74,5 +76,22 @@ class Vector2DTest {
         Vector2D vec1 = new Vector2D(-4, 3);
         Vector2D vec2 = new Vector2D(4, 3);
         assertFalse(vec1.isCollinear(vec2));
+    }
+
+    @Test
+    public void testLength() {
+        Vector2D vec = new Vector2D(3, 14);
+        double expected = 14.317821063276353;
+        double actual = vec.length();
+        assertEquals(expected, actual, DELTA);
+    }
+
+    @Test
+    public void testDistance() {
+        Vector2D vec1 = new Vector2D(3, 2);
+        Vector2D vec2 = new Vector2D(-1, -1);
+        double expected = 5.0;
+        double actual = vec1.distance(vec2);
+        assertEquals(expected, actual, DELTA);
     }
 }
