@@ -1,5 +1,5 @@
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 class Vector2DTest {
 
@@ -46,5 +46,33 @@ class Vector2DTest {
         int expected = -107;
         int actual = vec1.crossProduct(vec2);
         assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testIsOrthogonalTrue() {
+        Vector2D vec1 = new Vector2D(3, 1);
+        Vector2D vec2 = new Vector2D(-2, 6);
+        assertTrue(vec1.isOrthogonal(vec2));
+    }
+
+    @Test
+    public void testIsOrthogonalFalse() {
+        Vector2D vec1 = new Vector2D(3, -5);
+        Vector2D vec2 = new Vector2D(5, 4);
+        assertFalse(vec1.isOrthogonal(vec2));
+    }
+
+    @Test
+    public void testIsCollinearTrue() {
+        Vector2D vec1 = new Vector2D(2, 5);
+        Vector2D vec2 = new Vector2D(-6, -15);
+        assertTrue(vec1.isCollinear(vec2));
+    }
+
+    @Test
+    public void testIsCollinearFalse() {
+        Vector2D vec1 = new Vector2D(-4, 3);
+        Vector2D vec2 = new Vector2D(4, 3);
+        assertFalse(vec1.isCollinear(vec2));
     }
 }

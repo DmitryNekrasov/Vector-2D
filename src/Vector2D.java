@@ -47,7 +47,7 @@ public class Vector2D {
         return dotProduct(vec) == 0;
     }
 
-    public boolean isColinear(Vector2D vec) {
+    public boolean isCollinear(Vector2D vec) {
         return crossProduct(vec) == 0;
     }
 
