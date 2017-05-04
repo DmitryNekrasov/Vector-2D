@@ -24,15 +24,15 @@ public class Vector2D {
     }
 
     public Vector2D add(Vector2D vec) {
-        int newX = x + vec.x;
-        int newY = y + vec.y;
-        return new Vector2D(newX, newY);
+        return new Vector2D(x + vec.x, y + vec.y);
+    }
+
+    public Vector2D subtract(Vector2D vec) {
+        return new Vector2D(x - vec.x, y - vec.y);
     }
 
     public Vector2D multiply(int val) {
-        int newX = x * val;
-        int nexY = y * val;
-        return new Vector2D(newX, nexY);
+        return new Vector2D(x * val, y * val);
     }
 
     public int dotProduct(Vector2D vec) {
