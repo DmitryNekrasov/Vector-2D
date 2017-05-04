@@ -1,4 +1,7 @@
 import org.junit.jupiter.api.Test;
+
+import java.util.*;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class Vector2DTest {
@@ -93,5 +96,83 @@ class Vector2DTest {
         double expected = 5.0;
         double actual = vec1.distance(vec2);
         assertEquals(expected, actual, DELTA);
+    }
+
+    @Test
+    public void testFindDuplicatesHasDuplicates() {
+        List<Vector2D> list = new LinkedList<>();
+
+        list.add(new Vector2D(75, 92));
+        list.add(new Vector2D(42, 51));
+        list.add(new Vector2D(5, 20));
+        list.add(new Vector2D());
+        list.add(new Vector2D(2, 9));
+        list.add(new Vector2D(71, 92));
+        list.add(new Vector2D(75, 92));
+        list.add(new Vector2D(73, 38));
+        list.add(new Vector2D(47, 32));
+        list.add(new Vector2D(5, 20));
+        list.add(new Vector2D(75, 92));
+        list.add(new Vector2D());
+        list.add(new Vector2D(47, 32));
+        list.add(new Vector2D(75, 92));
+        list.add(new Vector2D(0, 0));
+
+        Map<Vector2D, Integer> expected = new HashMap<>();
+        expected.put(new Vector2D(47, 32), 2);
+        expected.put(new Vector2D(75, 92), 4);
+        expected.put(new Vector2D(5, 20), 2);
+        expected.put(new Vector2D(), 3);
+
+        Map<Vector2D, Integer> actual = Vector2D.findDuplicates(list);
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testFindDuplicatesDoesNotHaveDuplicates() {
+        List<Vector2D> list = new ArrayList<>();
+
+        list.add(new Vector2D(42, 76));
+        list.add(new Vector2D(71, 58));
+        list.add(new Vector2D(1, 99));
+        list.add(new Vector2D(76, 70));
+        list.add(new Vector2D(16, 92));
+        list.add(new Vector2D(59, 30));
+        list.add(new Vector2D(99, 41));
+        list.add(new Vector2D(95, 52));
+        list.add(new Vector2D(91, 10));
+        list.add(new Vector2D(17, 9));
+        list.add(new Vector2D());
+
+        Map<Vector2D, Integer> expected = new HashMap<>();
+        Map<Vector2D, Integer> actual = Vector2D.findDuplicates(list);
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testFindDuplicatesSet() {
+        Set<Vector2D> set = new HashSet<>();
+
+        set.add(new Vector2D());
+        set.add(new Vector2D(50, 1));
+        set.add(new Vector2D(16, 89));
+        set.add(new Vector2D(94, 1));
+        set.add(new Vector2D(16, 89));
+        set.add(new Vector2D(54, 78));
+        set.add(new Vector2D(50, 1));
+        set.add(new Vector2D());
+        set.add(new Vector2D(24, 39));
+        set.add(new Vector2D(32, 84));
+        set.add(new Vector2D(33, 64));
+        set.add(new Vector2D(24, 39));
+        set.add(new Vector2D(50, 1));
+        set.add(new Vector2D());
+
+        Map<Vector2D, Integer> expected = new HashMap<>();
+        Map<Vector2D, Integer> actual = Vector2D.findDuplicates(set);
+
+        assertEquals(expected, actual);
     }
 }
