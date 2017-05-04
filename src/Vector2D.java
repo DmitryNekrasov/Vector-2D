@@ -24,6 +24,18 @@ public class Vector2D {
         return x * vec.x + y * vec.y;
     }
 
+    public double length() {
+        return Math.sqrt(sqr(x) + sqr(y));
+    }
+
+    public double distance(Vector2D vec) {
+        return Math.sqrt(sqr(x - vec.x) + sqr(y - vec.y));
+    }
+
+    private static int sqr(int val) {
+        return val * val;
+    }
+
     @Override
     public String toString() {
         return "(" + x + ", " + y + ")";
