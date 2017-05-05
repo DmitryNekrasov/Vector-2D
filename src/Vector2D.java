@@ -1,6 +1,8 @@
+import org.jetbrains.annotations.NotNull;
+
 import java.util.*;
 
-public class Vector2D {
+public class Vector2D implements Comparable<Vector2D> {
 
     private final int x;
     private final int y;
@@ -101,5 +103,13 @@ public class Vector2D {
     @Override
     public String toString() {
         return "(" + x + ", " + y + ")";
+    }
+
+    @Override
+    public int compareTo(@NotNull Vector2D o) {
+        if (x != o.x) {
+            return x - o.x;
+        }
+        return y - o.y;
     }
 }
