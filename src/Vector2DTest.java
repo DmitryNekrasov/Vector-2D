@@ -82,6 +82,78 @@ class Vector2DTest {
     }
 
     @Test
+    public void testAngle1stQuarter() {
+        Vector2D vec = new Vector2D(7, 1);
+        double expected = 0.14189705460416402;
+        double actual = vec.angle();
+        assertEquals(expected, actual, DELTA);
+    }
+
+    @Test
+    public void testAngle2ndQuarter() {
+        Vector2D vec = new Vector2D(-4, 6);
+        double expected = 2.1587989303424635;
+        double actual = vec.angle();
+        assertEquals(expected, actual, DELTA);
+    }
+
+    @Test
+    public void testAngle3rdQuarter() {
+        Vector2D vec = new Vector2D(-3, -5);
+        double expected = 4.171969480114106;
+        double actual = vec.angle();
+        assertEquals(expected, actual, DELTA);
+    }
+
+    @Test
+    public void testAngle4thQuarter() {
+        Vector2D vec = new Vector2D(5, -5);
+        double expected = 5.497787143782138;
+        double actual = vec.angle();
+        assertEquals(expected, actual, DELTA);
+    }
+
+    @Test
+    public void testAngleZeroVector() {
+        Vector2D vec = new Vector2D();
+        double expected = 0.0;
+        double actual = vec.angle();
+        assertEquals(expected, actual, DELTA);
+    }
+
+    @Test
+    public void testAngle0() {
+        Vector2D vec = new Vector2D(7, 0);
+        double expected = 0.0;
+        double actual = vec.angle();
+        assertEquals(expected, actual, DELTA);
+    }
+
+    @Test
+    public void testAngle90() {
+        Vector2D vec = new Vector2D(0, 8);
+        double expected = Math.PI / 2;
+        double actual = vec.angle();
+        assertEquals(expected, actual, DELTA);
+    }
+
+    @Test
+    public void testAngle180() {
+        Vector2D vec = new Vector2D(-5, 0);
+        double expected = Math.PI;
+        double actual = vec.angle();
+        assertEquals(expected, actual, DELTA);
+    }
+
+    @Test
+    public void testAngle270() {
+        Vector2D vec = new Vector2D(0, -11);
+        double expected = 3 * Math.PI / 2;
+        double actual = vec.angle();
+        assertEquals(expected, actual, DELTA);
+    }
+
+    @Test
     public void testLength() {
         Vector2D vec = new Vector2D(3, 14);
         double expected = 14.317821063276353;

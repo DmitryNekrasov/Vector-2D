@@ -51,6 +51,11 @@ public class Vector2D {
         return crossProduct(vec) == 0;
     }
 
+    public double angle() {
+        double pi2 = Math.PI * 2;
+        return (Math.atan2(y, x) + pi2) % pi2;
+    }
+
     public double length() {
         return Math.sqrt(sqr(x) + sqr(y));
     }
