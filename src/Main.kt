@@ -14,7 +14,7 @@ fun main(args: Array<String>) {
     Collections.sort(vectorList)
     println(vectorList)
 
-    Collections.sort(vectorList) { v1, v2 -> compareValues(v1.length(), v2.length())}
+    Collections.sort(vectorList) { v1, v2 -> compareValues(v1.length(), v2.length()) }
     println(vectorList)
     println(vectorList.map(Vector2D::length))
 
